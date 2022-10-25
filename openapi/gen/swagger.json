@@ -1,0 +1,121 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "description": "imported by openapi",
+    "version": "1.0.0",
+    "title": "hiragana"
+  },
+  "servers": [
+    {
+      "url": "https://labs.goo.ne.jp/api",
+      "description": "Development"
+    }
+  ],
+  "paths": {
+    "/hiragana": {
+      "post": {
+        "tags": [
+          "hiragana"
+        ],
+        "summary": "ひらがな",
+        "description": "ひらがな",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ConversionRequest"
+        },
+        "responses": {
+          "200": {
+            "description": "Succeeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Conversion"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequestResponse"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "BadRequestResponse": {
+        "description": "Bad Request.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "ConversionRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "app_id",
+                "sentence",
+                "output_type"
+              ],
+              "properties": {
+                "app_id": {
+                  "type": "string"
+                },
+                "sentence": {
+                  "type": "string"
+                },
+                "output_type": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Conversion": {
+        "type": "object",
+        "required": [
+          "request_id",
+          "output_type",
+          "converted"
+        ],
+        "properties": {
+          "request_id": {
+            "type": "string"
+          },
+          "output_type": {
+            "type": "string"
+          },
+          "converted": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
