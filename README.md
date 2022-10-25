@@ -1,16 +1,12 @@
 # hiragana
 
-A new Flutter project.
+## ビルドするには
+- .envという名前のファイルを作成してGooApiのapiIdを埋める必要があります
+- 参考資料: https://labs.goo.ne.jp/api/jp/hiragana-translation/
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 使っているもの
+- swagger code genを使っています。
+apiリクエストを追加するには、 下記を実行するなりしてswagegr-cliをインストールしておく必要があります
+```zsh
+  npm install -g @apidevtools/swagger-cli
+```
